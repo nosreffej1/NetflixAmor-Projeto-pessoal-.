@@ -392,6 +392,8 @@ button {
   padding-bottom: 0.5rem;
   scrollbar-width: thin;
   scrollbar-color: #555 #111;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .row-list::-webkit-scrollbar {
