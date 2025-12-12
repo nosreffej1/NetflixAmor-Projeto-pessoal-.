@@ -1,0 +1,636 @@
+:root {
+  --bg-main: #000000;
+  --bg-elevated: #141414;
+  --text-main: #ffffff;
+  --text-muted: #b3b3b3;
+  --accent: #e50914;
+  --accent-soft: #b20710;
+  --radius-card: 0.35rem;
+}
+
+/* RESET SIMPLES */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* APP */
+#app {
+  min-height: 100vh;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+}
+
+/* LOGO */
+.logo-bar {
+  padding: 1.5rem 3rem;
+}
+
+.logo {
+  font-weight: 700;
+  letter-spacing: 0.18rem;
+  font-size: 1.8rem;
+  color: var(--accent);
+}
+
+.logo--small {
+  font-size: 1.3rem;
+}
+
+/* SCREENS */
+.screen {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+.screen--hidden {
+  display: none;
+}
+
+.screen--active {
+  display: block;
+}
+
+/* TELA DE PERFIL */
+.profile-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 6vh;
+}
+
+.profile-title {
+  font-size: 2.8rem;
+  margin-bottom: 3rem;
+}
+
+.profile-list {
+  display: flex;
+  gap: 2rem;
+}
+
+.profile-card {
+  background: transparent;
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.profile-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.profile-card:hover {
+  transform: scale(1.05);
+  color: var(--text-main);
+}
+
+.profile-avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 0.45rem;
+  overflow: hidden;
+  border: 3px solid transparent;
+  box-shadow: 0 0 0 2px transparent;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.profile-card:hover .profile-avatar {
+  border-color: #ffffff;
+  box-shadow: 0 0 0 2px var(--accent);
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-name {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+}
+
+/* ANIMAÇÃO DE TRANSIÇÃO DO PERFIL */
+.profile-card.profile-card--zoom-out {
+  animation: profileZoom 0.7s forwards ease-in;
+}
+
+@keyframes profileZoom {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(8);
+    opacity: 0;
+  }
+}
+
+.screen--fade-out {
+  animation: screenFadeOut 0.7s forwards ease-in;
+}
+
+@keyframes screenFadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
+/* NAVBAR DA HOME */
+.top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 3rem;
+  z-index: 20;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.85),
+    rgba(0, 0, 0, 0.3),
+    transparent
+  );
+}
+
+.top-nav-left {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #ffffff;
+}
+
+.top-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-text {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.nav-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.nav-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  height: 80vh;
+  min-height: 460px;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0; /* antes era -2 */
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+      to top,
+      #000 0%,
+      rgba(0, 0, 0, 0.85) 20%,
+      rgba(0, 0, 0, 0.6) 40%,
+      rgba(0, 0, 0, 0.3) 60%,
+      rgba(0, 0, 0, 0.8) 100%
+  );
+}
+
+.hero-content {
+  position: absolute;
+  bottom: 22vh;
+  left: 3rem;
+  max-width: 600px;
+  z-index: 2; /* garante que o texto fica por cima da imagem */
+}
+
+.hero-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  letter-spacing: 0.12rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.hero-n {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.hero-title {
+  font-size: 3rem;
+  line-height: 1.1;
+  margin: 0.4rem 0 0.6rem;
+  font-family: "Great Vibes", cursive;
+}
+
+.hero-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  background-color: var(--accent);
+  color: #ffffff;
+}
+
+.hero-description {
+  font-size: 0.95rem;
+  max-width: 90%;
+  margin-bottom: 1.2rem;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 0.8rem;
+}
+
+/* BOTÕES */
+.btn {
+  padding: 0.6rem 1.4rem;
+  border-radius: 0.3rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.btn-primary:hover {
+  background-color: #e6e6e6;
+  transform: scale(1.02);
+}
+
+.btn-secondary {
+  background-color: rgba(128, 128, 128, 0.6);
+  color: #ffffff;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(109, 109, 110, 0.9);
+  transform: scale(1.02);
+}
+
+/* ROWS / FILEIRAS DE MOMENTOS */
+.rows {
+  padding: 1.5rem 0 4rem;
+  background: linear-gradient(to bottom, #000000, #111111);
+}
+
+.row {
+  margin-bottom: 2.5rem;
+  padding: 0 3rem;
+}
+
+.row-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.7rem;
+}
+
+.row-list {
+  display: flex;
+  gap: 0.6rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: #555 #111;
+}
+
+.row-list::-webkit-scrollbar {
+  height: 6px;
+}
+
+.row-list::-webkit-scrollbar-track {
+  background: #111;
+}
+
+.row-list::-webkit-scrollbar-thumb {
+  background: #555;
+}
+
+.moment-card {
+  flex: 0 0 180px;
+  max-width: 220px;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background-color: #181818;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.moment-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.moment-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.4);
+}
+
+.moment-card:hover {
+  transform: scale(1.08) translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* CARTA */
+.letter-section {
+  padding: 4rem 1.5rem 5rem;
+  background-color: #000000;
+  border-top: 1px solid #222;
+}
+
+.letter-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.letter-label {
+  text-transform: uppercase;
+  letter-spacing: 0.18rem;
+  font-size: 0.8rem;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.letter-title {
+  font-family: "Great Vibes", cursive;
+  font-size: 2.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.letter-text {
+  color: var(--text-muted);
+  line-height: 1.7;
+  font-size: 0.98rem;
+  margin-bottom: 1rem;
+}
+
+/* MODAL */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal--hidden {
+  display: none;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
+}
+
+.modal-dialog {
+  position: relative;
+  width: min(900px, 96vw);
+  max-height: 90vh;
+  background-color: #141414;
+  border-radius: 0.6rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.85);
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.8rem;
+  font-size: 1.8rem;
+  color: #ffffff;
+  z-index: 2;
+}
+
+.modal-content {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 4fr);
+}
+
+.modal-cover-wrapper {
+  position: relative;
+  background-color: #000;
+  min-height: 230px;
+}
+
+#modal-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-info {
+  padding: 1.5rem 2rem;
+}
+
+.modal-label {
+  font-size: 0.8rem;
+  letter-spacing: 0.12rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.2rem;
+}
+
+.modal-title {
+  font-size: 1.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.modal-tag {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 0.8rem;
+}
+
+.modal-description {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 1.2rem;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 900px) {
+  .top-nav {
+    padding: 0 1rem;
+  }
+
+  .hero {
+    height: 70vh;
+    min-height: 380px;
+  }
+
+  .hero-content {
+    left: 1.5rem;
+    right: 1.5rem;
+    bottom: 18vh;
+    max-width: none;
+  }
+
+  .hero-title {
+    font-size: 2.3rem;
+  }
+
+  .hero-description {
+    max-width: 100%;
+  }
+
+  .row {
+    padding: 0 1.5rem;
+  }
+
+  .modal-content {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-info {
+    padding: 1rem 1.3rem 1.4rem;
+  }
+
+  .profile-title {
+    font-size: 2.1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .profile-list {
+    flex-direction: column;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero {
+    height: 65vh;
+  }
+
+  .top-nav-left {
+    gap: 1rem;
+  }
+
+  .nav-links {
+    gap: 1rem;
+  }
+
+  .row-list {
+    gap: 0.45rem;
+  }
+
+  .moment-card {
+    flex: 0 0 150px;
+  }
+
+  .letter-title {
+    font-size: 2.2rem;
+  }
+}

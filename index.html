@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Um pouco da nossa história</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Fonte parecida com a Netflix + fonte cursiva para o nome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <!-- TELA 1: ESCOLHER PERFIL -->
+      <section id="profile-screen" class="screen screen--active">
+        <header class="logo-bar">
+          <div class="logo">NETFLIX</div>
+        </header>
+
+        <div class="profile-content">
+          <h1 class="profile-title">Quem está assistindo?</h1>
+
+          <div class="profile-list">
+            <!-- Perfil único do casal -->
+            <button class="profile-card" id="profile-button">
+              <div class="profile-avatar">
+                <img src="images/perfil.jpeg" alt="Nosso perfil" />
+              </div>
+              <span class="profile-name">Nós dois</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- TELA 2: HOME ESTILO NETFLIX -->
+      <section id="home-screen" class="screen screen--hidden">
+        <!-- Topo / Navbar -->
+        <header class="top-nav">
+          <div class="top-nav-left">
+            <span class="logo logo--small">NETFLIX</span>
+            <nav class="nav-links">
+              <a href="#home-screen" class="nav-link active">Início</a>
+              <a href="#momentos" class="nav-link">Momentos</a>
+              <a href="#destaques" class="nav-link">Galeria de arte</a>
+              <a href="#carta" class="nav-link">Carta</a>
+            </nav>
+          </div>
+          <div class="top-nav-right">
+            <span class="nav-text">Para: <strong>Meu Amor</strong></span>
+            <div class="nav-avatar">
+              <img src="images/perfil.jpeg" alt="Avatar" />
+            </div>
+          </div>
+        </header>
+
+        <!-- HERO (série principal do casal) -->
+        <main>
+          <section class="hero">
+            <div class="hero-bg">
+              <img src="images/c.jpeg" alt="Nosso grande amor" />
+              <div class="hero-gradient"></div>
+            </div>
+
+            <div class="hero-content">
+              <p class="hero-label">
+                <span class="hero-n">N</span>
+                <span>SÉRIE</span>
+              </p>
+
+              <h1 class="hero-title">Nossa Melhor História</h1>
+
+              <p class="hero-meta">
+                <span class="hero-badge">TOP 1</span>
+                <span>Desde 2018</span>
+                <span>•</span>
+                <span>3 Temporadas e contando</span>
+              </p>
+
+              <p class="hero-description">
+                Um romance real, cheio de risadas, encontros, mensagens de
+                madrugada e abraços apertados. Essa é a história de duas pessoas
+                que escolheram se amar todos os dias — mesmo nos dias mais difíceis.
+              </p>
+
+              <div class="hero-buttons">
+                <button class="btn btn-primary">
+                  ▶ Continuar essa história
+                </button>
+                <button
+                  class="btn btn-secondary"
+                  onclick="document.querySelector('#carta').scrollIntoView({behavior: 'smooth'})"
+                >
+                  ♥ Ver carta para você
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <!-- FILEIRAS DE "FILMES" = MOMENTOS -->
+          <section id="momentos" class="rows">
+            <!-- Linha 1 -->
+            <div class="row">
+              <h2 class="row-title">Nossos Melhores Momentos</h2>
+              <div class="row-list">
+                <article
+                  class="moment-card"
+                  data-title="Um de nossos encontros mais recentes"
+                  data-tag="Romance • Top 1"
+                  data-short="Qualquer momento com você é como estar no paraíso."
+                >
+                  <img src="images/momento1.jpeg" alt="Momento 1" />
+                </article>
+
+                <article
+                  class="moment-card"
+                  data-title="Minha formatura"
+                  data-tag="Aventura • Top 2"
+                  data-short="Nenhum momento seria importante sem você ao meu lado."
+                >
+                  <img src="images/momento2.jpeg" alt="Momento 2" />
+                </article>
+
+                <article
+                  class="moment-card"
+                  data-title="Como eu amo essa mulher"
+                  data-tag="Comédia romântica"
+                  data-short="Mil fotos tortas, mil motivos pra sorrir."
+                >
+                  <img src="images/momento3.jpeg" alt="Momento 3" />
+                </article>
+
+                <article
+                  class="moment-card"
+                  data-title="Uma de muitas festas juninas vividas com você"
+                  data-tag="Drama • Final feliz"
+                  data-short="Mesmo nos dias difíceis, você sempre foi o meu porto seguro."
+                >
+                  <img src="images/momento4.jpeg" alt="Momento 4" />
+                </article>
+
+                <article
+                  class="moment-card"
+                  data-title="Um de nossos primeiros encontros"
+                  data-tag="Romance"
+                  data-short="Foi aqui onde tudo começou a ter cor na minha vida."
+                >
+                  <img src="images/momento5.jpeg" alt="Momento 5" />
+                </article>
+
+                <article
+                  class="moment-card"
+                  data-title="Nosso primeiro encontro"
+                  data-tag="Romance"
+                  data-short="O dia que minha vida começou a fazer sentido. O dia em que eu descobri o que é ser feliz de verdade."
+                >
+                  <img src="images/momento6.jpeg" alt="Momento 6" />
+                </article>
+
+                <article
+                  class="moment-card"
+                  data-title="Mais um de nossos primeiros momentos juntos"
+                  data-tag="Romance"
+                  data-short="1 minuto ao seu lado é como se."
+                >
+                  <img src="images/DATE.jpeg" alt="Momento 6" />
+                </article>
+
+                <article
+                  class="moment-card"
+                  data-title="Jogatina com a princesa"
+                  data-tag="Diversão"
+                  data-short="Não te largaria nem por qualquer jogo no mundo."
+                >
+                  <img src="images/d.jpeg" alt="Momento 6" />
+                </article>
+                <article
+                  class="moment-card"
+                  data-title="Piquenique"
+                  data-tag="Romance"
+                  data-short="Vivendo cada minuto ao seu lado."
+                >
+                  <img src="images/e.jpeg" alt="Momento 6" />
+                </article>
+                <article
+                  class="moment-card"
+                  data-title="Girassol"
+                  data-tag="Romance"
+                  data-short="Uma flor para a mulher da minha vida."
+                >
+                  <img src="images/a.jpeg" alt="Momento 6" />
+                </article>
+              </div>
+            </div>
+
+
+          </section>
+
+          <!-- FOTOS MAIS VISITADAS -->
+          <section id="destaques" class="rows">
+            <!-- Linha 1 -->
+            <div class="row">
+              <h2 class="row-title">Fotos mais visitadas</h2>
+              <div class="row-list">
+                <article
+                  class="moment-card"
+                  data-title="Foto número 1"
+                  data-short="Olhar mais encantador e apaixonante que eu conheço."
+                >
+                  <img src="images/7.jpeg" alt="Foto número 1" />
+                </article>
+
+                <article
+                  class="moment-card"
+                  data-title="Foto número 2"
+                  data-short="Rosto de princesa e um cabelo espetacular."
+                >
+                  <img src="images/6.jpeg" alt="Foto número 2" />
+                </article>
+
+                <article
+                  class="moment-card"
+                  data-title="Foto número 3"
+                  data-short="Uma boca maravilhosa com um olhar encantador."
+                >
+                  <img src="images/10.jpeg" alt="Foto número 3" />
+                </article>
+
+                <article
+                  class="moment-card"
+                  data-title="Foto número 4"
+                  data-short="Olha essa mulher, que corpo, que perfeição, que beleza..."
+                >
+                  <img src="images/8.jpeg" alt="Foto número 4" />
+                </article>
+
+                <article
+                  class="moment-card"
+                  data-title="Foto número 5"
+                  data-short="Os cachinhos que me encantam a cada dia que passa."
+                >
+                  <img src="images/9.jpeg" alt="Foto número 5" />
+                </article>
+
+                <article
+                  class="moment-card"
+                  data-title="Foto número 6"
+                  data-short="Pinta de modelo, beleza digna de uma deusa grega."
+                >
+                  <img src="images/16.jpeg" alt="Foto número 6" />
+                </article>
+                <article
+                  class="moment-card"
+                  data-title="Foto número 7"
+                  data-short="Olhar encantador, rosto maravilhoso."
+                >
+                  <img src="images/19.jpeg" alt="Foto número 7" />
+                </article>
+                <article
+                  class="moment-card"
+                  data-title="Foto número 8"
+                  data-short="Já falei que seus olhos, seu rosto, seu cabelo, sua boca e você inteira é perfeita?"
+                >
+                  <img src="images/4.jpeg" alt="Foto número 8" />
+                </article>
+                <article
+                  class="moment-card"
+                  data-title="Foto número 9"
+                  data-short="Capa de revista."
+                >
+                  <img src="images/2.jpeg" alt="Foto número 09" />
+                </article>
+                <article
+                  class="moment-card"
+                  data-title="Foto número 10"
+                  data-short="Multiplica senhor."
+                >
+                  <img src="images/15.jpeg" alt="Foto número 10" />
+                </article>
+              </div>
+            </div>
+
+
+          </section>
+
+          <!-- CARTA MAIOR -->
+          <section id="carta" class="letter-section">
+            <div class="letter-inner">
+              <p class="letter-label">Carta para você</p>
+              <h2 class="letter-title">
+                Bruna &amp; Jefferson
+              </h2>
+
+              <p class="letter-text">
+                Me lembro como se fosse ontem de quando te conheci e comecei a sorrir verdadeiramente. Você entrou na minha vida e se tornou a pessoa mais importante em pouquíssimo tempo, não sei oq é viver sem você ao meu lado, não sei imaginar um futuro se não for com você, te amo mais do que jamais pensei ser possível amar.
+              </p>
+
+              <p class="letter-text">
+                Você é a mulher mais linda que já pisou nessa terra, é a dona de toda beleza do mundo e dona do meu coração. Dona do sorriso mais lindo que eu já vi, dos olhos com o brilho maior do que o de qualquer estrela do universo, com os cachos que fazem eu me perder em tanta perfeição, você é simplesmente perfeita, uma divindade em pessoa, a oitava e última maravilha do mundo, além de ser a mulher da minha vida.
+              </p>
+
+              <p class="letter-text">
+                Espero dividir uma vida inteir ao seu lado. Continue sendo essa mulher incrível, namorada perfeita e futura esposa maravilhosa que você é. Eu te amo e sempre vou te amar! ❤️
+              </p>
+            </div>
+          </section>
+        </main>
+      </section>
+
+      <!-- MODAL DE DESCRIÇÃO DO "FILME" / MOMENTO -->
+      <div id="moment-modal" class="modal modal--hidden" aria-hidden="true">
+        <div class="modal-backdrop"></div>
+        <div class="modal-dialog" role="dialog" aria-modal="true">
+          <button class="modal-close" id="modal-close-btn">×</button>
+
+          <div class="modal-content">
+            <div class="modal-cover-wrapper">
+              <img id="modal-cover" src="" alt="Foto do momento" />
+            </div>
+
+            <div class="modal-info">
+              <p class="modal-label">
+                <span class="hero-n">N</span> MOMENTO ESPECIAL
+              </p>
+              <h2 id="modal-title" class="modal-title">Título do momento</h2>
+              <p id="modal-tag" class="modal-tag">Romance</p>
+
+              <p id="modal-description" class="modal-description">
+                Texto romântico falando desse momento específico.
+              </p>
+
+              <button
+                class="btn btn-secondary"
+                onclick="document.querySelector('#carta').scrollIntoView({behavior: 'smooth'})"
+              >
+                Ver carta completa
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
